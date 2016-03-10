@@ -23,5 +23,8 @@ define(['Class', 'ImageLoader', 'SpriteSheet'], function(Class, ImageLoader, Spr
             return assets[_name];
         };
 
+        var ast = new Assets("mario", "res/textures/mario.png", 28, 42);
+        ast.idle = ast.sheet.crop(3, 0, 28, 42);
+
         return Assets;
 });

@@ -1,11 +1,9 @@
-define(['Class', 'Display', 'Assets'], function(Class, Display, Assets){
+define(['Class', 'Display', 'State', 'GameState'], function(Class, Display, State, GameState){
 
     var _this;
     var running = false;
     var title, width, height, g, display;
-    var ast = new Assets("test", "res/textures/mario.png", Assets.DEFAULT_WIDTH, Assets.DEFAULT_HEIGHT);
-    var img = ast.sheet.crop(0, 0, 32 ,45);
-    var img2 = ast.sheet.crop(32, 0, 32 ,45);
+    var gameState, menuState, settingsState;
 
     var Game = Class.extend(
         {
@@ -21,17 +19,25 @@ define(['Class', 'Display', 'Assets'], function(Class, Display, Assets){
     {
         display = new Display(title, width, height);
         g = display.getGraphics();
+        gameState = new GameState();
+        State.setState(gameState);
     }
 
     function tick(_dt)
     {
-
+        if(State.getState() != null)
+        {
+            State.getState().tick(_dt);
+        }
     }
+
     function render()
     {
         g.clearRect(0, 0, width, height);
-        g.myDrawImage(img, 10, 15, 32, 32);
-        g.myDrawImage(img2, 50, 15, 32, 32);
+        if(State.getState() != null)
+        {
+            State.getState().render(g);
+        }
     }
 
     Game.prototype.run = function()
