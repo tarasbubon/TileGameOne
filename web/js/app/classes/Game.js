@@ -1,8 +1,11 @@
-define(['Class', 'Display'], function(Class, Display){
+define(['Class', 'Display', 'Assets'], function(Class, Display, Assets){
 
     var _this;
     var running = false;
     var title, width, height, g, display;
+    var ast = new Assets("test", "res/textures/mario.png", Assets.DEFAULT_WIDTH, Assets.DEFAULT_HEIGHT);
+    var img = ast.sheet.crop(0, 0, 32 ,45);
+    var img2 = ast.sheet.crop(32, 0, 32 ,45);
 
     var Game = Class.extend(
         {
@@ -27,7 +30,8 @@ define(['Class', 'Display'], function(Class, Display){
     function render()
     {
         g.clearRect(0, 0, width, height);
-        g.fillRect(x, y, 200, 50);
+        g.myDrawImage(img, 10, 15, 32, 32);
+        g.myDrawImage(img2, 50, 15, 32, 32);
     }
 
     Game.prototype.run = function()
