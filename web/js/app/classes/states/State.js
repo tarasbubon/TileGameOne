@@ -3,9 +3,9 @@ define(['Class'], function(Class)
     var currentState = null;
     var State = Class.extend(
         {
-            init:function()
+            init:function(_handler)
             {
-
+                this.handler = _handler;
             }
         });
 
@@ -27,7 +27,7 @@ define(['Class'], function(Class)
     State.setState = function(_state)
     {
         currentState = _state;
-    }
+    };
 
     return State;
 });
