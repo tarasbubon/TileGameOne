@@ -1,40 +1,21 @@
-define(['State', 'Assets'], function(State, Assets)
+define(['State', 'Player'], function(State, Player)
 {
     var GameState = State.extend(
-        {
-            init:function(_handler)
-            {
-                this._super(_handler);
-            }
-        });
-    //temp vars
-    var x = 0;
-    var y = 0;
-
-    GameState.prototype.tick = function(_dt)
     {
-        if(this.handler.getKeyManager().up)
+        init:function(_handler)
         {
-            y-=50*_dt;
-        }
-        if(this.handler.getKeyManager().down)
+            this._super(_handler);
+            this.player = new Player(_handler, 20, 20);
+        },
+        tick:function(_dt)
         {
-            y+=50*_dt;
-        }
-        if(this.handler.getKeyManager().left)
+            this.player.tick(_dt);
+        },
+        render:function(_g)
         {
-            x-=50*_dt;
+            this.player.render(_g);
         }
-        if(this.handler.getKeyManager().right)
-        {
-            x+=50*_dt;
-        }
-    };
-
-    GameState.prototype.render = function(_g)
-    {
-        _g.myDrawImage(Assets.getAssets("mario").idle, x, y, Assets.getAssets("mario").width, Assets.getAssets("mario").height);
-    };
+    });
 
     return GameState;
 });

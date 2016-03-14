@@ -14,6 +14,55 @@ define(['Class', 'Display', 'State', 'GameState', 'KeyManager', 'Handler'], func
             width = _width;
             height = _height;
             keyManager = new KeyManager();
+        },
+        run:function()
+        {
+            init();
+            var fps = 30;
+            var timePerTick = 1000/fps;
+            var delta = 0;
+            var now;
+            var lastTime = Date.now();
+            var timer = 0;
+            var ticks = 0;
+            function loop()
+            {
+                if(running)
+                {
+                    now = Date.now();
+                    delta = now - lastTime;
+                    timer += delta;
+                    lastTime = now;
+                }
+                if(timer >= timePerTick)
+                {
+                    dt = timer/1000;
+                    tick(dt);
+                    render();
+                    timer = 0;
+                }
+                window.requestAnimationFrame(loop);
+            }
+            loop();
+        },
+        start:function()
+        {
+            if(running)return;
+            running = true;
+            this.run();
+        },
+        //Getters
+        getKeyManager:function()
+        {
+            return keyManager;
+        },
+        getWidth:function()
+        {
+            return width;
+        },
+        getHeight:function()
+        {
+            return height;
         }
     });
 
@@ -43,59 +92,6 @@ define(['Class', 'Display', 'State', 'GameState', 'KeyManager', 'Handler'], func
             State.getState().render(g);
         }
     }
-
-    Game.prototype.run = function()
-    {
-        init();
-        var fps = 30;
-        var timePerTick = 1000/fps;
-        var delta = 0;
-        var now;
-        var lastTime = Date.now();
-        var timer = 0;
-        var ticks = 0;
-        function loop()
-        {
-            if(running)
-            {
-                now = Date.now();
-                delta = now - lastTime;
-                timer += delta;
-                lastTime = now;
-            }
-            if(timer >= timePerTick)
-            {
-                dt = timer/1000;
-                tick(dt);
-                render();
-                timer = 0;
-            }
-            window.requestAnimationFrame(loop);
-        }
-        loop();
-    };
-
-    Game.prototype.start = function()
-    {
-        if(running)return;
-        running = true;
-        this.run();
-    };
-
-    Game.prototype.getKeyManager = function()
-    {
-        return keyManager;
-    };
-
-    Game.prototype.getWidth = function()
-    {
-        return width;
-    };
-
-    Game.prototype.getHeight = function()
-    {
-        return height;
-    };
 
     return Game;
 });
