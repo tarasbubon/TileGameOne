@@ -1,4 +1,4 @@
-define(['State', 'Player'], function(State, Player)
+define(['State', 'Player', 'TileLoader'], function(State, Player, Tile)
 {
     var GameState = State.extend(
     {
@@ -13,6 +13,7 @@ define(['State', 'Player'], function(State, Player)
         },
         render:function(_g)
         {
+            Tile.tiles[0].render(_g, 0, 0);
             this.player.render(_g);
         }
     });
