@@ -24,7 +24,8 @@ requirejs.config(
         "State":"app/classes/states/State",
         "StoneTile":"app/classes/tiles/StoneTile",
         "Tile":"app/classes/tiles/Tile",
-        "TileLoader":"app/classes/tiles/TileLoader"
+        "TileLoader":"app/classes/tiles/TileLoader",
+        "World":"app/classes/worlds/World"
     }
 });
 
