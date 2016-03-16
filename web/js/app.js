@@ -25,6 +25,7 @@ requirejs.config(
         "StoneTile":"app/classes/tiles/StoneTile",
         "Tile":"app/classes/tiles/Tile",
         "TileLoader":"app/classes/tiles/TileLoader",
+        "Utils":"app/classes/utils/Utils",
         "World":"app/classes/worlds/World"
     }
 });
