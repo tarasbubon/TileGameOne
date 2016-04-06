@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1d05a03-9970-45cf-bf45-004ef1a78d18" name="Default" comment="" />
+    <list default="true" id="a1d05a03-9970-45cf-bf45-004ef1a78d18" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="TileGameOne.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/IdeaProjects/TileGameOne/out/" />
@@ -179,6 +181,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -620,7 +623,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -630,7 +632,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Projects/examples" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -915,11 +917,13 @@
       <workItem from="1458117065497" duration="462000" />
       <workItem from="1458117600024" duration="6982000" />
       <workItem from="1458309669005" duration="993000" />
+      <workItem from="1459929956642" duration="216000" />
+      <workItem from="1459930386887" duration="84000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65499000" />
+    <option name="totallyTimeSpent" value="65799000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1452" height="886" extended-state="0" />
